@@ -36,5 +36,23 @@ module Types
       Course.all
     end
 
+
+    field :find_users, [Types::UserType], null: false
+      argument :id, ID, required: true
+    end
+    def find_users
+      user_of_request = User.find_by(id: id)
+     
+      if user_of_request.nil?
+        raise GraphQL::ExecutionError, "User does not exist"
+      end
+=begin
+      courses = user_of_request.courses
+      courses = user_of_request.
+      results = User.where()
+=end
+    end
+
+
   end
 end
