@@ -1,5 +1,7 @@
 class SchoolsHaveStudents < ActiveRecord::Migration[6.0]
   def change
-    add_reference :users, :school, foreign_key: true
+    create_join_table :users, :schools do |t|
+      t.index [:user_id, :school_id]
+    end
   end
 end

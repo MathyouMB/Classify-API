@@ -4,7 +4,7 @@ module Types
     field :first_name, String, null: true
     field :last_name, String, null: true
     field :email, String, null: true
-    field :school, [Types::SchoolType], null: true
+    field :schools, [Types::SchoolType], null: true
     field :courses, [Types::CourseType], null: true
   end
 end

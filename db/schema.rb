@@ -40,6 +40,12 @@ ActiveRecord::Schema.define(version: 2019_12_01_162512) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "schools_users", id: false, force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "school_id", null: false
+    t.index ["user_id", "school_id"], name: "index_schools_users_on_user_id_and_school_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "password"
@@ -47,9 +53,6 @@ ActiveRecord::Schema.define(version: 2019_12_01_162512) do
     t.string "last_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "school_id"
-    t.index ["school_id"], name: "index_users_on_school_id"
   end
 
-  add_foreign_key "users", "schools"
 end

@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-    
+
 
 School.create(
     name: "Carleton University"
@@ -16,12 +16,18 @@ School.create(
     name: "University of Ottawa"
 )
 
-User.create(
+User.create!(
     first_name: "matt",
     last_name: "MB",
     password: "123",
     email: "matt@email.com",
-    school_id: 1
+) 
+
+User.create!(
+    first_name: "Iain",
+    last_name: "M",
+    password: "456",
+    email: "email@email.com",
 )
 
 
@@ -38,10 +44,3 @@ Course.create(
 #in db
 
 
-User.create(
-    first_name: "Iain",
-    last_name: "M",
-    password: "123",
-    email: "email@email.com",
-    school_id: 1
-)
