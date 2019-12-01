@@ -30,5 +30,11 @@ module Types
       School.all
     end
 
+    field :courses, [Types::CourseType], null: false
+
+    def courses
+      Course.all
+    end
+
   end
 end

@@ -14,6 +14,16 @@ School.create(
     name: "University of Ottawa"
 )
 
+Course.create(
+    name: "Introduction to Computer Science I",
+    code: "COMP 1405"
+)
+
+Course.create(
+    name: "Introduction to Computer Science II",
+    code: "COMP 1406"
+)
+
 User.create(
     first_name: "matt",
     last_name: "MB",
