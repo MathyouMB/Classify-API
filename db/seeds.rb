@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+=begin
+    
 
 School.create(
     name: "Carleton University"
@@ -14,6 +16,15 @@ School.create(
     name: "University of Ottawa"
 )
 
+User.create(
+    first_name: "matt",
+    last_name: "MB",
+    password: "123",
+    email: "matt@email.com",
+    school_id: 1
+)
+
+=end
 Course.create(
     name: "Introduction to Computer Science I",
     code: "COMP 1405"
@@ -24,10 +35,3 @@ Course.create(
     code: "COMP 1406"
 )
 
-User.create(
-    first_name: "matt",
-    last_name: "MB",
-    password: "123",
-    email: "matt@email.com",
-    school_id: 1
-)
