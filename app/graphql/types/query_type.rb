@@ -48,7 +48,17 @@ module Types
         raise GraphQL::ExecutionError, "User does not exist"
       end
 
-      User.where.not(id: id)
+      returnUsers = Array.new
+
+      givenUsers = User.joins(:courses).where(courses: {id: [user_of_request.courses]})
+
+      givenUsers.each do |user|
+        if(!(returnUsers.include? user))
+          returnUsers.push(user)
+        end
+      end
+
+      returnUsers
     end
 
   end

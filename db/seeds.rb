@@ -8,11 +8,11 @@
 
 
 
-School.create(
+s1 = School.create(
     name: "Carleton University"
 )
 
-School.create(
+s2 = School.create(
     name: "University of Ottawa"
 )
 
@@ -31,15 +31,56 @@ User.create!(
 )
 
 
-Course.create(
+Course.create!(
     name: "Introduction to Computer Science I",
     code: "COMP 1405"
 )
 
-Course.create(
+Course.create!(
     name: "Introduction to Computer Science II",
     code: "COMP 1406"
 )
+
+Course.create!(
+    name: "Discrete Structures I",
+    code: "COMP 1805"
+)
+
+Course.create!(
+    name: "Introduction to Systems Programming",
+    code: "COMP 2401"
+)
+
+Course.create!(
+    name: "Abstract Data Types and Algorithms",
+    code: "COMP 2402 "
+)
+
+5.times do
+    random_user = User.create!(
+        first_name: Faker::Name.first_name,
+        last_name: Faker::Name.last_name,
+        password: "123",
+        email: Faker::Internet.email,
+    ) 
+
+    3.times do
+        random_user.courses << Course.find_by(id: rand(1..5))  
+    end
+
+    random_user.schools << s1
+end
+
+5.times do
+    random_user = User.create!(
+        first_name: Faker::Name.first_name,
+        last_name: Faker::Name.last_name,
+        password: "123",
+        email: Faker::Internet.email,
+    ) 
+
+    random_user.schools << s2
+end
 
 #in db
 
