@@ -1,24 +1,20 @@
-# README
+# Classify API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+user
+has many and belongs to :courses
+belongs_to :school
 
-Things you may want to cover:
+course
+has many and belong to:users
+belongs_to :program
+belongs_to :school => through program
 
-* Ruby version
+program
+has many :courses
+belongs_to :school
 
-* System dependencies
+school
+has many :programs
+has many :courses => through programs
+has many :students
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
