@@ -16,3 +16,5 @@ has many :programs
 has many :courses => through programs
 has many :students
 
+
+heroku pg:reset --app classify-graphql-api --confirm classify-graphql-api

@@ -16,20 +16,22 @@ s2 = School.create(
     name: "University of Ottawa"
 )
 
-User.create!(
+u1 = User.create!(
     first_name: "matt",
     last_name: "MB",
     password: "123",
     email: "matt@email.com",
 ) 
+u1.blacklist = Blacklist.create()
 
-User.create!(
+u2 = User.create!(
     first_name: "Iain",
     last_name: "M",
     password: "456",
     email: "email@email.com",
 )
 
+u2.blacklist = Blacklist.create()
 
 Course.create!(
     name: "Introduction to Computer Science I",
@@ -56,7 +58,7 @@ Course.create!(
     code: "COMP 2402 "
 )
 
-5.times do
+15.times do
     random_user = User.create!(
         first_name: Faker::Name.first_name,
         last_name: Faker::Name.last_name,
@@ -68,6 +70,7 @@ Course.create!(
         random_user.courses << Course.find_by(id: rand(1..5))  
     end
 
+    random_user.blacklist = Blacklist.create()
     random_user.schools << s1
 end
 
@@ -78,7 +81,7 @@ end
         password: "123",
         email: Faker::Internet.email,
     ) 
-
+    random_user.blacklist = Blacklist.create()
     random_user.schools << s2
 end
 

@@ -58,6 +58,9 @@ module Types
         end
       end
 
+      # user has blacklist
+      # blacklist has many blaclistedUsers
+
       returnUsers
     end
 

@@ -10,10 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_01_162512) do
+ActiveRecord::Schema.define(version: 2019_12_02_002757) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "blacklistedusers", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "blacklist_id"
+    t.bigint "user_id"
+    t.index ["blacklist_id"], name: "index_blacklistedusers_on_blacklist_id"
+    t.index ["user_id"], name: "index_blacklistedusers_on_user_id"
+  end
+
+  create_table "blacklists", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_blacklists_on_user_id"
+  end
 
   create_table "courses", force: :cascade do |t|
     t.string "name"
@@ -26,6 +42,11 @@ ActiveRecord::Schema.define(version: 2019_12_01_162512) do
     t.bigint "user_id", null: false
     t.bigint "course_id", null: false
     t.index ["user_id", "course_id"], name: "index_courses_users_on_user_id_and_course_id"
+  end
+
+  create_table "matchlists", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "programs", force: :cascade do |t|
@@ -55,4 +76,7 @@ ActiveRecord::Schema.define(version: 2019_12_01_162512) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "blacklistedusers", "blacklists"
+  add_foreign_key "blacklistedusers", "users"
+  add_foreign_key "blacklists", "users"
 end
