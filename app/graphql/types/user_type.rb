@@ -6,7 +6,7 @@ module Types
     field :email, String, null: true
     field :schools, [Types::SchoolType], null: true
     field :courses, [Types::CourseType], null: true
-    #field :blacklist, [Types::BlacklistType], null: false
+    field :blacklist, Types::BlacklistType, null: false
 
   end
 end

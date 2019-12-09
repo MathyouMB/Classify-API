@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 2019_12_02_002757) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
+    t.bigint "blacklisteduser_id"
+    t.index ["blacklisteduser_id"], name: "index_blacklists_on_blacklisteduser_id"
     t.index ["user_id"], name: "index_blacklists_on_user_id"
   end
 
@@ -74,9 +76,13 @@ ActiveRecord::Schema.define(version: 2019_12_02_002757) do
     t.string "last_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "blacklist_id"
+    t.index ["blacklist_id"], name: "index_users_on_blacklist_id"
   end
 
   add_foreign_key "blacklistedusers", "blacklists"
   add_foreign_key "blacklistedusers", "users"
+  add_foreign_key "blacklists", "blacklistedusers"
   add_foreign_key "blacklists", "users"
+  add_foreign_key "users", "blacklists"
 end
