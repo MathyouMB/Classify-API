@@ -56,10 +56,7 @@ module Types
           returnUsers.push(user)
         end
       end
-
-      # user has blacklist
-      # blacklist has many blaclistedUsers
-
+      
       returnUsers
     end
 
