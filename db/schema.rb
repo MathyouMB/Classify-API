@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_09_064555) do
+ActiveRecord::Schema.define(version: 2019_12_09_182837) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,8 @@ ActiveRecord::Schema.define(version: 2019_12_09_064555) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "school_id"
+    t.index ["school_id"], name: "index_programs_on_school_id"
   end
 
   create_table "schools", force: :cascade do |t|
@@ -85,6 +87,8 @@ ActiveRecord::Schema.define(version: 2019_12_09_064555) do
     t.string "last_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "program_id"
+    t.index ["program_id"], name: "index_users_on_program_id"
   end
 
   add_foreign_key "blacklistedusers", "blacklists"
@@ -93,4 +97,6 @@ ActiveRecord::Schema.define(version: 2019_12_09_064555) do
   add_foreign_key "matchedusers", "matchlists"
   add_foreign_key "matchedusers", "users"
   add_foreign_key "matchlists", "users"
+  add_foreign_key "programs", "schools"
+  add_foreign_key "users", "programs"
 end

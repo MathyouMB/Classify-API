@@ -5,5 +5,6 @@ class User < ApplicationRecord
     has_one :matchlist
     has_many :blacklistedusers
     has_many :matchedusers
+    belongs_to :program
 
 end

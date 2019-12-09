@@ -1,4 +1,4 @@
 # Classify API
 
 # Current ERD
-<img src="https://cdn.discordapp.com/attachments/490220076163792896/653501042281021460/unknown.png"></img>
+<img src="https://cdn.discordapp.com/attachments/533358056344518667/653668073584459813/unknown.png"></img>
