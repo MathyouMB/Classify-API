@@ -7,6 +7,10 @@ module Types
     field :schools, [Types::SchoolType], null: true
     field :courses, [Types::CourseType], null: true
     field :blacklist, Types::BlacklistType, null: false
+    field :my_blacklistedusers, [Types::UserType], null: false
 
+    def my_blacklistedusers 
+      self.object.blacklist.users
+    end
   end
 end

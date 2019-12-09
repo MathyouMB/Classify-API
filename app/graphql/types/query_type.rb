@@ -48,8 +48,7 @@ module Types
       end
 
       returnUsers = Array.new
-
-      givenUsers = User.joins(:courses).where(courses: {id: [user_of_request.courses]})
+      givenUsers = User.joins(:courses).where.not(id: [user_of_request.blacklist.users]).where(courses: {id: [user_of_request.courses]})
 
       givenUsers.each do |user|
         if(!(returnUsers.include? user))
