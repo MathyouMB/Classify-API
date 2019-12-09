@@ -4,5 +4,6 @@ class User < ApplicationRecord
     has_one :blacklist
     has_one :matchlist
     has_many :blacklistedusers
+    has_many :matchedusers
 
 end

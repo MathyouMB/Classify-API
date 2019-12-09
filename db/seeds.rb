@@ -23,6 +23,7 @@ u1 = User.create!(
     email: "matt@email.com",
 ) 
 u1.blacklist = Blacklist.create()
+u1.matchlist = Matchlist.create()
 
 u2 = User.create!(
     first_name: "Iain",
@@ -32,6 +33,7 @@ u2 = User.create!(
 )
 
 u2.blacklist = Blacklist.create()
+u2.matchlist = Matchlist.create()
 
 Course.create!(
     name: "Introduction to Computer Science I",
@@ -71,6 +73,7 @@ Course.create!(
     end
 
     random_user.blacklist = Blacklist.create()
+    random_user.matchlist = Matchlist.create()
     random_user.schools << s1
 end
 
@@ -82,6 +85,7 @@ end
         email: Faker::Internet.email,
     ) 
     random_user.blacklist = Blacklist.create()
+    random_user.matchlist = Matchlist.create()
     random_user.schools << s2
 end
 

@@ -58,6 +58,7 @@ module Types
       argument :profile_id, Int, required: true
       argument :user_id, Int, required: true
     end
+
     def add_user_to_blacklist(profile_id:,user_id:)
     
      
@@ -74,6 +75,43 @@ module Types
 
       b = Blacklisteduser.create(
           blacklist_id: profile_of_request.blacklist.id,
+          user_id: user_id,
+      )
+
+      true
+
+    end
+
+    field :add_user_to_matchlist, Boolean, null: true do 
+      description "Add user to another users matchlist"
+      argument :profile_id, Int, required: true
+      argument :user_id, Int, required: true
+    end
+
+    def add_user_to_matchlist(profile_id:,user_id:)
+    
+     
+      profile_of_request = User.find_by(id: profile_id)
+      user_of_request = User.find_by(id: user_id)
+  
+      if profile_of_request.nil?
+        raise GraphQL::ExecutionError, "User doesn't exist"
+      end
+
+      if user_of_request.nil?
+        raise GraphQL::ExecutionError, "User does not exist"
+      end
+
+      if profile_of_request.blacklist.users.include? user_of_request
+        raise GraphQL::ExecutionError, "user is in blacklist"
+      end
+
+      if profile_of_request.matchlist.users.include? user_of_request
+        raise GraphQL::ExecutionError, "user is in matchlist"
+      end
+
+      b = Matcheduser.create(
+          matchlist_id: profile_of_request.blacklist.id,
           user_id: user_id,
       )
 
