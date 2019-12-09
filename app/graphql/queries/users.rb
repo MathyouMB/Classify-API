@@ -6,7 +6,7 @@ module Queries
       type [Types::UserType], null: false
   
       def resolve()
-        User.all
+        ::User.all
       end
     end
   end
