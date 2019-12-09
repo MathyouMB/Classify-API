@@ -48,6 +48,7 @@ module Types
       end
 
       returnUsers = Array.new
+      
       givenUsers = User.limit(10).joins(:courses).where.not(id: [user_of_request.blacklist.users]).where.not(id: [user_of_request.matchlist.users]).where(courses: {id: [user_of_request.courses]})
 
       givenUsers.each do |user|
