@@ -36,21 +36,6 @@ module Types
       Course.all
     end
 
-    field :blacklists, [Types::BlacklistType], null: false
-
-    def blacklists
-      Blacklist.all
-    end
-
-    field :blacklist, [Types::BlacklistType], null: false do
-      argument :id, ID, required: true
-    end
-
-    def blacklist(id:)
-      Blacklist.find(id)
-    end
-
-
     field :find_matches, [Types::UserType], null: false do
       argument :id, ID, required: true
     end
