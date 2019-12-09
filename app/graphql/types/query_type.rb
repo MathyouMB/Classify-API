@@ -15,6 +15,14 @@ module Types
       User.find(id)
     end
 
+    field :matchlist, Types::MatchlistType, null: false do
+      argument :id, ID, required: true
+    end
+
+    def matchlist(id:)
+      Matchlist.find(id)
+    end
+
     field :login, Types::UserType, null: false do
       argument :email, String, required: true
       argument :password, String, required: true
@@ -56,7 +64,7 @@ module Types
           returnUsers.push(user)
         end
       end
-      
+
       returnUsers
     end
 
