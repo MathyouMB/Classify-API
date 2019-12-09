@@ -19,5 +19,7 @@ module Types
 
     field :find_matches, resolver: Queries::FindMatches
 
+    field :find_common_matches, resolver: Queries::FindCommonMatches
+
   end
 end

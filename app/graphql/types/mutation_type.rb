@@ -9,5 +9,7 @@ module Types
 
     field :add_user_to_matchlist, mutation: Mutations::AddUserToMatchlist
 
+    field :remove_user_from_matchlist, mutation: Mutations::RemoveUserFromMatchlist
+
   end
 end
