@@ -1,11 +1,13 @@
 module Types
   class QueryType < Types::BaseObject
-    
+=begin
     field :users, [Types::UserType], null: false
 
     def users
       User.all
     end
+=end
+    field :users, resolver: Queries::Users
 
     field :user, Types::UserType, null: false do
       argument :id, ID, required: true
