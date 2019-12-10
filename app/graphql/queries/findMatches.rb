@@ -13,7 +13,7 @@ module Queries
             raise GraphQL::ExecutionError, "User does not exist"
         end
 
-        returnUsers = ::User.joins(:courses).where.not(id: [user_of_request.blacklist.users]).where.not(id: [user_of_request.matchlist.users]).where(courses: {id: [user_of_request.courses]}).limit(10).uniq
+        returnUsers = ::User.joins(:courses).where.not(id: id).where.not(id: [user_of_request.blacklist.users]).where.not(id: [user_of_request.matchlist.users]).where(courses: {id: [user_of_request.courses]}).limit(10).uniq
 
         returnUsers
       end
