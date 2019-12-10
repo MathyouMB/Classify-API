@@ -17,10 +17,9 @@ s2 = School.create(
 )
 
 p1 = Program.create(
-    name: "Computer Science"
+    name: "Computer Science",
+    school_id: 1
 )
-
-p1.school = s1
 
 u1 = User.create!(
     first_name: "matt",
