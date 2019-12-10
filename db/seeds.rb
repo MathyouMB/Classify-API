@@ -16,11 +16,18 @@ s2 = School.create(
     name: "University of Ottawa"
 )
 
+p1 = Program.create(
+    name: "Computer Science"
+)
+
+p1.school = s1
+
 u1 = User.create!(
     first_name: "matt",
     last_name: "MB",
     password: "123",
     email: "matt@email.com",
+    program_id: 1
 ) 
 u1.blacklist = Blacklist.create()
 u1.matchlist = Matchlist.create()
@@ -30,6 +37,7 @@ u2 = User.create!(
     last_name: "M",
     password: "456",
     email: "email@email.com",
+    program_id: 1
 )
 
 u2.blacklist = Blacklist.create()
@@ -66,6 +74,7 @@ Course.create!(
         last_name: Faker::Name.last_name,
         password: "123",
         email: Faker::Internet.email,
+        program_id: 1
     ) 
 
     3.times do
@@ -83,6 +92,7 @@ end
         last_name: Faker::Name.last_name,
         password: "123",
         email: Faker::Internet.email,
+        program_id: 1
     ) 
     random_user.blacklist = Blacklist.create()
     random_user.matchlist = Matchlist.create()
