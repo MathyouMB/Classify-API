@@ -26,21 +26,25 @@ u1 = User.create!(
     last_name: "MB",
     password: "123",
     email: "matt@email.com",
+    biography: Faker::Quote.famous_last_words,
     program_id: 1
 ) 
 u1.blacklist = Blacklist.create()
 u1.matchlist = Matchlist.create()
+u1.schools << s1
 
 u2 = User.create!(
     first_name: "Iain",
     last_name: "M",
     password: "456",
     email: "email@email.com",
+    biography: Faker::Quote.famous_last_words,
     program_id: 1
 )
 
 u2.blacklist = Blacklist.create()
 u2.matchlist = Matchlist.create()
+u2.schools << s1
 
 Course.create!(
     name: "Introduction to Computer Science I",
@@ -67,12 +71,21 @@ Course.create!(
     code: "COMP 2402 "
 )
 
-15.times do
+3.times do
+    u1.courses << Course.find_by(id: rand(1..5))  
+end
+
+3.times do
+    u2.courses << Course.find_by(id: rand(1..5))  
+end
+
+30.times do
     random_user = User.create!(
         first_name: Faker::Name.first_name,
         last_name: Faker::Name.last_name,
         password: "123",
         email: Faker::Internet.email,
+        biography: Faker::Quote.famous_last_words,
         program_id: 1
     ) 
 
@@ -97,7 +110,3 @@ end
     random_user.matchlist = Matchlist.create()
     random_user.schools << s2
 end
-
-#in db
-
-
