@@ -6,7 +6,11 @@ Classify is a web application that matches students together for studying based 
 
 # Screenshots
 
+## Login page & Swipe page
+
 ![alt-text-1](https://github.com/MathyouMB/Classify/blob/develop/public/login.png "title-1") ![alt-text-2](https://github.com/MathyouMB/Classify/blob/develop/public/swipe.gif "title-2")
+
+## Profile page & Found Matches page
 
 ![alt-text-1](https://github.com/MathyouMB/Classify/blob/develop/public/profileScreenshot.png "title-1") ![alt-text-2](https://github.com/MathyouMB/Classify/blob/develop/public/matchScreenshot.png "title-2")
 
