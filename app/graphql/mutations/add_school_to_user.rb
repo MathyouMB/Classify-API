@@ -1,6 +1,6 @@
 module Mutations
     class AddSchoolToUser < Mutations::BaseMutation
-        description "Add school to staff"
+        description "Add school to user"
         argument :user_id, Int, required: true
         argument :school_id, Int, required: true
 
