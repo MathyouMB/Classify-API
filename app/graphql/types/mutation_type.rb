@@ -11,5 +11,7 @@ module Types
 
     field :remove_user_from_matchlist, mutation: Mutations::RemoveUserFromMatchlist
 
+    field :create_course, mutation: Mutations::CreateCourse
+
   end
 end
