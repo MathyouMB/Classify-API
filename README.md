@@ -2,7 +2,7 @@
 
 <img src="https://github.com/MathyouMB/Classify/raw/develop/public/appLogo130.png">
 
-Classify is a web application that matches students together for studying based on their classes, program, and school through Tinder style swiping.
+Classify is a web application that matches students together for studying based on their classes, program, and school through Tinder style swiping. This project was also used to demonstrate the capabilities of GraphQL during my GraphQL workshop at cuHacking 2020.
 
 # Screenshots
 
@@ -28,5 +28,5 @@ Classify is a web application that matches students together for studying based 
 - backend: https://github.com/MathyouMB/Classify-API
 
 # Workshop Ressources
-- Slides: https://docs.google.com/presentation/d/1UUSTy4kTC6uXZ3zYEC1Z3XH9SZdGhgVedoB4tsOJuE0/edit?usp=sharing
+- Slides: https://docs.google.com/presentation/d/1UUSTy4kTC6uXZ3zYEC1Z3XH9SZdGhgVedoB4tsOJuE0/
 - Guides: https://www.howtographql.com/
