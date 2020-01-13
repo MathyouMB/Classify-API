@@ -27,6 +27,6 @@ Classify is a web application that matches students together for studying based 
 - client: https://github.com/MathyouMB/Classify
 - backend: https://github.com/MathyouMB/Classify-API
 
-# Workshop Ressources
+# Workshop Resources
 - Slides: https://docs.google.com/presentation/d/1UUSTy4kTC6uXZ3zYEC1Z3XH9SZdGhgVedoB4tsOJuE0/
 - Guides: https://www.howtographql.com/
